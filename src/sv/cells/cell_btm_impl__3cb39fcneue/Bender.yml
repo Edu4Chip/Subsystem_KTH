@@ -1,0 +1,11 @@
+package:
+  name: cell_btm_impl__3cb39fcneue
+dependencies:
+  sequencer_impl__bofiw7zs7vj:
+    path: '../../controllers/sequencer_impl__bofiw7zs7vj'
+  swb_impl__dixk93xtnmt:
+    path: '../../resources/swb_impl__dixk93xtnmt'
+  iosram_btm_impl__hez9qsj1kug:
+    path: '../../resources/iosram_btm_impl__hez9qsj1kug'
+sources:
+- './rtl/cell_btm.sv'

@@ -1,3 +1,18 @@
 # example of comment. generally ok as it is, but some tools require parser helper.
-src/sv/chip_top.sv
-src/sv/icn.sv
+
+/home/saba/edu4chip/Subsystem_KTH/src/sv/common/agu/./rtl/agu.sv
+/home/saba/edu4chip/Subsystem_KTH/src/sv/common/agu_fft4/./rtl/agu_fft4.sv
+/home/saba/edu4chip/Subsystem_KTH/src/sv/common/sram/./rtl/sram:sim.sv
+/home/saba/edu4chip/Subsystem_KTH/src/sv/resources/complex_dpu_impl__uvcilbfxawa/./rtl/complex_dpu.sv
+/home/saba/edu4chip/Subsystem_KTH/src/sv/resources/iosram_btm_impl__hez9qsj1kug/./rtl/iosram_btm.sv
+/home/saba/edu4chip/Subsystem_KTH/src/sv/resources/iosram_top_impl__xbvdm4fjuts/./rtl/iosram_top.sv
+/home/saba/edu4chip/Subsystem_KTH/src/sv/resources/radix2_bu_impl__geetgwgvwme/./rtl/radix2_bu.sv
+/home/saba/edu4chip/Subsystem_KTH/src/sv/resources/rf_fft_impl__hxfcpuabvjh/./rtl/rf_fft.sv
+/home/saba/edu4chip/Subsystem_KTH/src/sv/controllers/sequencer_impl__bofiw7zs7vj/./rtl/sequencer.sv
+/home/saba/edu4chip/Subsystem_KTH/src/sv/resources/swb_impl__dixk93xtnmt/./rtl/swb.sv
+/home/saba/edu4chip/Subsystem_KTH/src/sv/cells/cell_btm_impl__3cb39fcneue/./rtl/cell_btm.sv
+/home/saba/edu4chip/Subsystem_KTH/src/sv/cells/cell_mid_impl__teewgpcaalx/./rtl/cell_mid.sv
+/home/saba/edu4chip/Subsystem_KTH/src/sv/cells/cell_top_impl__gh3m7x647ap/./rtl/cell_top.sv
+/home/saba/edu4chip/Subsystem_KTH/src/sv/fabric/./rtl/fabric.sv
+/home/saba/edu4chip/Subsystem_KTH/src/sv/tb/./rtl/tb.sv
+

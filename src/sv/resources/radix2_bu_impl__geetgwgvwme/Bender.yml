@@ -1,0 +1,5 @@
+package:
+  name: radix2_bu_impl__geetgwgvwme
+dependencies: null
+sources:
+- './rtl/radix2_bu.sv'

@@ -1,0 +1,15 @@
+package:
+  name: cell_mid_impl__teewgpcaalx
+dependencies:
+  sequencer_impl__bofiw7zs7vj:
+    path: '../../controllers/sequencer_impl__bofiw7zs7vj'
+  swb_impl__dixk93xtnmt:
+    path: '../../resources/swb_impl__dixk93xtnmt'
+  rf_fft_impl__hxfcpuabvjh:
+    path: '../../resources/rf_fft_impl__hxfcpuabvjh'
+  complex_dpu_impl__uvcilbfxawa:
+    path: '../../resources/complex_dpu_impl__uvcilbfxawa'
+  radix2_bu_impl__geetgwgvwme:
+    path: '../../resources/radix2_bu_impl__geetgwgvwme'
+sources:
+- './rtl/cell_mid.sv'
