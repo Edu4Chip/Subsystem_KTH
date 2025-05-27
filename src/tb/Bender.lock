@@ -3,19 +3,26 @@ packages:
     revision: null
     version: null
     source:
-      Path: ../interface/kth_ss/../../fabric/../cells/cell_single_row_impl__vwlutpz2gsg/../../resources/rf_io_impl__gcuvy23b1jt/../../common/agu
+      Path: ../interface/kth_ss/../fabric_wrapper/../../fabric/../cells/cell_single_row_impl__vwlutpz2gsg/../../resources/rf_io_impl__gcuvy23b1jt/../../common/agu
     dependencies: []
   agu_fft:
     revision: null
     version: null
     source:
-      Path: ../interface/kth_ss/../../fabric/../cells/cell_single_row_impl__vwlutpz2gsg/../../resources/rf_io_impl__gcuvy23b1jt/../../common/agu_fft
+      Path: ../interface/kth_ss/../fabric_wrapper/../../fabric/../cells/cell_single_row_impl__vwlutpz2gsg/../../resources/rf_io_impl__gcuvy23b1jt/../../common/agu_fft
     dependencies: []
+  apb_slave_interface:
+    revision: null
+    version: null
+    source:
+      Path: ../interface/kth_ss/../fabric_wrapper/../apb_slave_interface
+    dependencies:
+    - io_buffer
   cell_single_row_impl__vwlutpz2gsg:
     revision: null
     version: null
     source:
-      Path: ../interface/kth_ss/../../fabric/../cells/cell_single_row_impl__vwlutpz2gsg
+      Path: ../interface/kth_ss/../fabric_wrapper/../../fabric/../cells/cell_single_row_impl__vwlutpz2gsg
     dependencies:
     - complex_dpu_impl__uvcilbfxawa
     - radix2_bu_impl__geetgwgvwme
@@ -26,66 +33,36 @@ packages:
     revision: null
     version: null
     source:
-      Path: ../interface/kth_ss/../../fabric/../cells/cell_single_row_impl__vwlutpz2gsg/../../resources/complex_dpu_impl__uvcilbfxawa
-    dependencies: []
+      Path: ../interface/kth_ss/../fabric_wrapper/../../fabric/../cells/cell_single_row_impl__vwlutpz2gsg/../../resources/complex_dpu_impl__uvcilbfxawa
+    dependencies:
+    - fsm
   fabric:
     revision: null
     version: null
     source:
-      Path: ../interface/kth_ss/../../fabric
+      Path: ../interface/kth_ss/../fabric_wrapper/../../fabric
     dependencies:
     - cell_single_row_impl__vwlutpz2gsg
-  radix2_bu_impl__geetgwgvwme:
-    revision: null
-    version: null
-    source:
-      Path: ../interface/kth_ss/../../fabric/../cells/cell_single_row_impl__vwlutpz2gsg/../../resources/radix2_bu_impl__geetgwgvwme
-    dependencies: []
-  rf_io_impl__gcuvy23b1jt:
-    revision: null
-    version: null
-    source:
-      Path: ../interface/kth_ss/../../fabric/../cells/cell_single_row_impl__vwlutpz2gsg/../../resources/rf_io_impl__gcuvy23b1jt
-    dependencies:
-    - agu
-    - agu_fft
-  sequencer_impl__bofiw7zs7vj:
-    revision: null
-    version: null
-    source:
-      Path: ../interface/kth_ss/../../fabric/../cells/cell_single_row_impl__vwlutpz2gsg/../../controllers/sequencer_impl__bofiw7zs7vj
-    dependencies: []
-  swb_impl__dixk93xtnmt:
-    revision: null
-    version: null
-    source:
-      Path: ../interface/kth_ss/../../fabric/../cells/cell_single_row_impl__vwlutpz2gsg/../../resources/swb_impl__dixk93xtnmt
-    dependencies: []
-
-  io_buffer:
-    revision: null
-    version: null
-    source:
-      Path: ../interface/kth_ss/../fabric_wrapper/../apb_slave_interface/../io_buffer
-    dependencies: []
-
-  apb_slave_interface:
-    revision: null
-    version: null
-    source:
-      Path: ../interface/kth_ss/../fabric_wrapper/../apb_slave_interface
-    dependencies:
-    - io_buffer
-  
   fabric_wrapper:
     revision: null
     version: null
     source:
       Path: ../interface/kth_ss/../fabric_wrapper
     dependencies:
-    - fabric
     - apb_slave_interface
-  
+    - fabric
+  fsm:
+    revision: null
+    version: null
+    source:
+      Path: ../interface/kth_ss/../fabric_wrapper/../../fabric/../cells/cell_single_row_impl__vwlutpz2gsg/../../resources/complex_dpu_impl__uvcilbfxawa/../../common/fsm
+    dependencies: []
+  io_buffer:
+    revision: null
+    version: null
+    source:
+      Path: ../interface/kth_ss/../fabric_wrapper/../apb_slave_interface/../io_buffer
+    dependencies: []
   kth_ss:
     revision: null
     version: null
@@ -93,3 +70,29 @@ packages:
       Path: ../interface/kth_ss
     dependencies:
     - fabric_wrapper
+  radix2_bu_impl__geetgwgvwme:
+    revision: null
+    version: null
+    source:
+      Path: ../interface/kth_ss/../fabric_wrapper/../../fabric/../cells/cell_single_row_impl__vwlutpz2gsg/../../resources/radix2_bu_impl__geetgwgvwme
+    dependencies: []
+  rf_io_impl__gcuvy23b1jt:
+    revision: null
+    version: null
+    source:
+      Path: ../interface/kth_ss/../fabric_wrapper/../../fabric/../cells/cell_single_row_impl__vwlutpz2gsg/../../resources/rf_io_impl__gcuvy23b1jt
+    dependencies:
+    - agu
+    - agu_fft
+  sequencer_impl__bofiw7zs7vj:
+    revision: null
+    version: null
+    source:
+      Path: ../interface/kth_ss/../fabric_wrapper/../../fabric/../cells/cell_single_row_impl__vwlutpz2gsg/../../controllers/sequencer_impl__bofiw7zs7vj
+    dependencies: []
+  swb_impl__dixk93xtnmt:
+    revision: null
+    version: null
+    source:
+      Path: ../interface/kth_ss/../fabric_wrapper/../../fabric/../cells/cell_single_row_impl__vwlutpz2gsg/../../resources/swb_impl__dixk93xtnmt
+    dependencies: []
