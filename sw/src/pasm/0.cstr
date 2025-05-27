@@ -1,0 +1,17 @@
+epoch <fft16_1cell> {
+    linear ( input_r == input_w )
+
+    linear ( swb > input_w.e0[2] )
+    linear ( swb < read_d1 )
+    linear ( mult < read_d2 )
+    linear ( mult != swb )
+
+    linear ( read_d1 == read_d2 + 1 )
+    linear ( read_d2 == read_twid )
+    linear ( write_d1 == read_d1 + 1 )
+    linear ( write_d2 == read_d2 + 2 )
+    linear ( write_d1 == write_d2 )
+
+    linear ( output_r > write_d1 + 32 )
+    linear ( output_r == output_w )
+}
