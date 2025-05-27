@@ -1,4 +1,4 @@
-bender -d ../rtl/tb script vsim -t sim > read_src.do
+bender -d ../src/tb script vsim -t sim > read_src.do
 
 vlib work
 
