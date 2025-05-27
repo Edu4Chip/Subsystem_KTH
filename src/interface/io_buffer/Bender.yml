@@ -1,0 +1,7 @@
+# This file was written by Nooshin :))). YOU CAN EDIT.
+
+package:
+  name: io_buffer
+
+sources:
+  - ./rtl/io_buffer.sv

@@ -1,0 +1,9 @@
+# This file was written by Nooshin :))). YOU CAN EDIT.
+
+package:
+  name: kth_ss
+dependencies:
+  fabric_wrapper:
+    path: '../fabric_wrapper'
+sources:
+- './rtl/kth_ss.sv'

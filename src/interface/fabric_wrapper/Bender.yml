@@ -1,0 +1,11 @@
+# This file was written by Nooshin :))). YOU CAN EDIT.
+
+package:
+  name: fabric_wrapper
+dependencies:
+  fabric:
+    path: '../../fabric'
+  apb_slave_interface:
+    path: '../apb_slave_interface'
+sources:
+- './rtl/fabric_wrapper.sv'

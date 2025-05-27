@@ -1,5 +1,0 @@
-package:
-  name: complex_dpu_impl__uvcilbfxawa
-dependencies: null
-sources:
-- './rtl/complex_dpu.sv'

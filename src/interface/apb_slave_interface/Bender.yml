@@ -1,0 +1,9 @@
+# This file was written by Nooshin :))). YOU CAN EDIT.
+
+package:
+  name: apb_slave_interface
+dependencies:
+  io_buffer:
+    path: '../io_buffer'
+sources:
+- './rtl/apb_slave_interface.sv'

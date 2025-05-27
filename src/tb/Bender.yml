@@ -1,0 +1,10 @@
+# This file was written by Nooshin :))). YOU CAN EDIT.
+
+package:
+  name: kth_ss_tb
+
+dependencies:
+  kth_ss: { path: ../interface/kth_ss }
+
+sources:
+  - ./rtl/kth_ss_tb.sv
