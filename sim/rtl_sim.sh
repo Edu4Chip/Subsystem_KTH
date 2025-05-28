@@ -1,10 +1,12 @@
-mkdir temp
+mkdir -p ./temp
+cp ../sw/bin/instr.bin temp
+cp ../sw/bin/sram_image_in.bin temp
+cp ./simulate.do temp
+cp ./waves.do temp
+
 cd temp
+
 bender -d ../../src/tb script vsim -t sim > read_src.do
-cp ../../sw/bin/instr.bin .
-cp ../../sw/bin/sram_image_in.bin .
-cp ../simulate.do .
-cp ../waves.do .
 vsim -do simulate.do 
 
 
