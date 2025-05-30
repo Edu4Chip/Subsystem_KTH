@@ -24,7 +24,7 @@ set_db / .use_scan_seqs_for_non_dft false
 
 # Read RTL files
 
-source ${SOURCE_DIR}/interface/kth_ss/hierarchy.tcl
+source ${SYN_DIR}/hierarchy.tcl
 
 elaborate ${TOP_NAME}
 
@@ -59,4 +59,4 @@ report_area > "${REPORT_DIR}/${PREFIX}${TOP_NAME}_${start_timestamp}_area${SUFFI
 report_clocks          > "$REPORT_DIR/${PREFIX}${TOP_NAME}_${start_timestamp}_clock.txt"
 check_design           > "$REPORT_DIR/${PREFIX}${TOP_NAME}_${start_timestamp}_check_design.txt"
 report_hierarchy > "${REPORT_DIR}/${PREFIX}${TOP_NAME}_${start_timestamp}_hierarchy${SUFFIX}.txt"
-report_reference > "${REPORT_DIR}/${PREFIX}${TOP_NAME}_${start_timestamp}_reference${SUFFIX}.txt"
+

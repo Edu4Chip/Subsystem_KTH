@@ -45,11 +45,11 @@
 
 
 # Directories for output material
-set REPORT_DIR  ../syn/rpt;      # synthesis reports: timing, area, etc.
-set OUT_DIR     ../syn/db;       # output files: netlist, sdf sdc etc.
-set SOURCE_DIR  ../rtl;          # rtl code that should be synthesised
-set SYN_DIR     ../syn;          # synthesis directory, synthesis scripts constraints etc.
-set SCR_DIR     ../syn/scr;      # synthesis scripts
+set REPORT_DIR  ../rpt;      # synthesis reports: timing, area, etc.
+set OUT_DIR     ../db;       # output files: netlist, sdf sdc etc.
+set SOURCE_DIR  ../../src;          # rtl code that should be synthesised
+set SYN_DIR     ../;          # synthesis directory, synthesis scripts constraints etc.
+set SCR_DIR     ../scr;      # synthesis scripts
 
 
 # Design specific variables
