@@ -2,16 +2,16 @@
 
 module kth_ss_tb();
   // Memory mapping parameters
-  localparam INSTR_BASE_ADDR  = 32'h0000_0000;
+  localparam INSTR_BASE_ADDR  = 32'h0105_3000;
   localparam INSTR_SIZE_BYTES = 256 * 1 * 1;   // 64 words × 4 bytes
 
-  localparam DATA_IN_BASE_ADDR   = 32'h0000_1000;
+  localparam DATA_IN_BASE_ADDR   = 32'h0105_3100;
   localparam DATA_IN_SIZE_BYTES  = 96 * 1;        // 24 words (input: 16, twiddle factor: 8) × 4 bytes
 
-  localparam DATA_OUT_BASE_ADDR  = 32'h0000_2000;
+  localparam DATA_OUT_BASE_ADDR  = 32'h0105_3200;
   localparam DATA_OUT_SIZE_BYTES = 64 * 1;        // 8 words × 4 bytes
 
-  localparam CTRL_BASE_ADDR   = 32'h0000_3000;
+  localparam CTRL_BASE_ADDR   = 32'h0105_3300;
   localparam CTRL_SIZE_BYTES  = 12;             // call & ret
 
 
