@@ -106,25 +106,7 @@ module kth_ss_tb();
     end
     $fclose(fd);
 
-    // // wait for ret to be 1
-    // @(posedge ret_all);
-    // // record simulation time
-    // @(negedge clk_in) end_time = $realtime;
-    // $display("Simulation ends! Total cycles = %d", (end_time - start_time) / 10);
-
-    // // display all the output buffer and write it to a file
-    // $display("Output Buffers:");
-    // fd = $fopen("sram_image_out.bin", "w+");
-    // foreach (output_buffer[i]) begin
-    //   for (int x = 0; x < 16; x = x + 1) begin
-    //     ob_line[x] = output_buffer[i][16*x+:16];
-    //   end
-    //   $display("OB[%d] = %s", i, $sformatf("%p", ob_line));
-    //   $fwrite(fd, "%d %b\n", i, output_buffer[i]);
-    // end
-    // $finish;
-
-
+    ///////////////////////////// Test case 2 - Input Buffer - riscv writes data to i_buffer /////////////////////////////
     fd = $fopen("sram_image_in.bin", "r");
     $display("Loading input buffer");
     while (!$feof(
@@ -142,13 +124,14 @@ module kth_ss_tb();
 
     ///////////////////////////// Test case 3 - control register - rsicv calls all drra cells /////////////////////////////  
     PADDR = CTRL_BASE_ADDR + 32'h4;
-    PWDATA = 32'h00000001; // call = 1
+    PWDATA = 32'h00000001; 
     @(negedge clk_in);
     start_time = $realtime;
 
     PENABLE = 0;
     PSEL    = 0;
     PWRITE  = 0;
+   
     ///////////////////////////// Test case 4 - status register - rsicv reads the ret register /////////////////////////////  
     @(posedge kth_ss_inst.fabric_wrapper_inst.apb_slave_interface_inst.ret[0]);
     @(negedge clk_in) end_time = $realtime;
@@ -158,9 +141,9 @@ module kth_ss_tb();
     PSEL    = 1;
     PWRITE  = 0;
     
-    ///////////////////////////// Test case 5 - output buffer - rsicv reads output data /////////////////////////////    
+    ///////////////////////////// Test case 5 - Output Buffer - rsicv reads data from o_buffer /////////////////////////////    
     for (int i = 0; i < 8*2; i++) begin
-      PENABLE = 0;
+      PENABLE = 1;
       PWRITE  = 0;
       PADDR = DATA_OUT_BASE_ADDR + i * 4;
       @(negedge clk_in);
