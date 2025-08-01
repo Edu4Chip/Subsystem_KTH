@@ -92,8 +92,8 @@ module apb_slave_interface #(
     logic                            sel_data_out_region;
     logic                            sel_ctrl_region;
     
-    assign apb_write = PSEL && PENABLE && PWRITE && !PSLVERR;
-    assign apb_read  = PSEL && !PWRITE && !PSLVERR;
+    assign apb_write = PSEL && PENABLE &&  PWRITE && !PSLVERR;
+    assign apb_read  = PSEL && PENABLE && !PWRITE && !PSLVERR;
 
     // APB address decoding
     assign sel_instr_region    = in_range(PADDR, INSTR_BASE_ADDR, INSTR_SIZE_BYTES);
@@ -117,10 +117,12 @@ module apb_slave_interface #(
         .data_out(input_buffer_data_out)
     );
 
-    // input buffer: read by drra
-    assign input_buffer_ren = io_en_in[col_index];
+    assign input_buffer_wen  = en_mmio_ib;
+    assign input_buffer_ren  = io_en_in[col_index];
     assign input_buffer_addr = input_buffer_wen ? addr_mmio_ib : 
                                input_buffer_ren ? io_addr_in[col_index] : {IO_ADDR_WIDTH{1'bx}};
+    
+    // input buffer: read by drra
     always_comb begin
         for (int i = 0; i < COLS; i++) begin
             io_data_in[i] = (i == col_index) ? input_buffer_data_out : 0;
@@ -155,7 +157,6 @@ module apb_slave_interface #(
         end
     end
 
-    assign input_buffer_wen = en_mmio_ib;
     assign input_buffer_data_in = input_buffer_wen ? assembler_mmio_ib : 0;
 
 
@@ -172,10 +173,12 @@ module apb_slave_interface #(
         .data_out(output_buffer_data_out)
     );
 
-    // output buffer: written by drra
-    assign output_buffer_wen = io_en_out[col_index];
+    assign output_buffer_wen  = io_en_out[col_index];
+    assign output_buffer_ren  = en_mmio_ob;
     assign output_buffer_addr = output_buffer_wen ? io_addr_out[col_index] : 
                                 output_buffer_ren ? addr_mmio_ob : {IO_ADDR_WIDTH{1'bx}};
+    
+    // output buffer: written by drra
     assign output_buffer_data_in = io_data_out[col_index];
 
     // output buffer: read by riscv (MMIO)
@@ -191,8 +194,6 @@ module apb_slave_interface #(
         end
     end
     
-    assign disassembler_mmio_ob = output_buffer_data_out[chunck_counter_ob * 32 +: 32];
-
     always_ff @(posedge clk, negedge rst_n) begin : CHUNK_COUNTER_OB
         if (!rst_n) begin
             chunck_counter_ob <= 0;
@@ -205,7 +206,7 @@ module apb_slave_interface #(
         end
     end
 
-    assign output_buffer_ren = en_mmio_ob;
+    assign disassembler_mmio_ob = output_buffer_data_out[chunck_counter_ob * 32 +: 32];
 
   
     // instruction loader: written by riscv (MMIO)
