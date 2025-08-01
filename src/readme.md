@@ -34,13 +34,13 @@ bender -d ./tb script -t gf22 flist > hdl_files.list
 | INSTR_HOPS_WIDTH    | 1             |
 | IO_ADDR_WIDTH       | 2             |
 | IO_DATA_WIDTH       | 256           |
-| INSTR_BASE_ADDR     | 32'h0000_0000 |
+| INSTR_BASE_ADDR     | 32'h0105_3000 |
 | INSTR_SIZE_BYTES    | 256           |
-| DATA_IN_BASE_ADDR   | 32'h0000_1000 |
+| DATA_IN_BASE_ADDR   | 32'h0105_3100 |
 | DATA_IN_SIZE_BYTES  | 96            |
-| DATA_OUT_BASE_ADDR  | 32'h0000_2000 |
+| DATA_OUT_BASE_ADDR  | 32'h0105_3200 |
 | DATA_OUT_SIZE_BYTES | 64            |
-| CTRL_BASE_ADDR      | 32'h0000_3000 |
+| CTRL_BASE_ADDR      | 32'h0105_3300 |
 | CTRL_SIZE_BYTES     | 12            |
 
 ## Ports
