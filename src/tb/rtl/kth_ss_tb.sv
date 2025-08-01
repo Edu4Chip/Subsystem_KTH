@@ -1,19 +1,17 @@
 `timescale 1ps/1fs;
 
 module kth_ss_tb();
-  // Memory mapping parameters
-  localparam INSTR_BASE_ADDR  = 32'h0105_3000;
-  localparam INSTR_SIZE_BYTES = 256 * 1 * 1;   // 64 words × 4 bytes
+  
+  // no top params allowed
 
-  localparam DATA_IN_BASE_ADDR   = 32'h0105_3100;
-  localparam DATA_IN_SIZE_BYTES  = 96 * 1;        // 24 words (input: 16, twiddle factor: 8) × 4 bytes
-
-  localparam DATA_OUT_BASE_ADDR  = 32'h0105_3200;
-  localparam DATA_OUT_SIZE_BYTES = 64 * 1;        // 8 words × 4 bytes
-
-  localparam CTRL_BASE_ADDR   = 32'h0105_3300;
-  localparam CTRL_SIZE_BYTES  = 12;             // call & ret
-
+  localparam INSTR_BASE_ADDR     = kth_ss_inst.INSTR_BASE_ADDR;
+  localparam INSTR_SIZE_BYTES    = kth_ss_inst.INSTR_SIZE_BYTES;
+  localparam DATA_IN_BASE_ADDR   = kth_ss_inst.DATA_IN_BASE_ADDR;
+  localparam DATA_IN_SIZE_BYTES  = kth_ss_inst.DATA_IN_SIZE_BYTES;
+  localparam DATA_OUT_BASE_ADDR  = kth_ss_inst.DATA_OUT_BASE_ADDR;
+  localparam DATA_OUT_SIZE_BYTES = kth_ss_inst.DATA_OUT_SIZE_BYTES;
+  localparam CTRL_BASE_ADDR      = kth_ss_inst.CTRL_BASE_ADDR;
+  localparam CTRL_SIZE_BYTES     = kth_ss_inst.CTRL_SIZE_BYTES;
 
   logic [31:0] PADDR;
   logic        PENABLE;
@@ -40,17 +38,7 @@ module kth_ss_tb();
   logic [255:0] temp_data;
   realtime start_time, end_time;
 
-  kth_ss #(
-      .INSTR_BASE_ADDR(INSTR_BASE_ADDR),
-      .INSTR_SIZE_BYTES(INSTR_SIZE_BYTES),
-      .DATA_IN_BASE_ADDR(DATA_IN_BASE_ADDR),
-      .DATA_IN_SIZE_BYTES(DATA_IN_SIZE_BYTES),
-      .DATA_OUT_BASE_ADDR(DATA_OUT_BASE_ADDR),
-      .DATA_OUT_SIZE_BYTES(DATA_OUT_SIZE_BYTES),
-      .CTRL_BASE_ADDR(CTRL_BASE_ADDR),
-      .CTRL_SIZE_BYTES(CTRL_SIZE_BYTES)
-  )
-    kth_ss_inst (
+  kth_ss kth_ss_inst (
       .PADDR(PADDR),
       .PENABLE(PENABLE),
       .PSEL(PSEL),

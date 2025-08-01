@@ -27,12 +27,12 @@ module kth_ss #(
     // Memory mapping parameters
     parameter INSTR_BASE_ADDR     = 32'h0105_3000,
     parameter INSTR_SIZE_BYTES    = 256,    // 64 words × 4 bytes
-    parameter DATA_IN_BASE_ADDR   = 32'h0105_3080,
+    parameter DATA_IN_BASE_ADDR   = 32'h0105_3100,
     parameter DATA_IN_SIZE_BYTES  = 96,     // 40 words (input: 16, twiddle factor: 8) × 4 bytes
-    parameter DATA_OUT_BASE_ADDR  = 32'h0105_3100,
+    parameter DATA_OUT_BASE_ADDR  = 32'h0105_3200,
     parameter DATA_OUT_SIZE_BYTES = 64,     // 16 words × 4 bytes
-    parameter CTRL_BASE_ADDR      = 32'h0105_30E0,
-    parameter CTRL_SIZE_BYTES     = 12      // DRRA_cell & call & ret     
+    parameter CTRL_BASE_ADDR      = 32'h0105_3300,
+    parameter CTRL_SIZE_BYTES     = 12      // DRRA_cell & call & ret        
 
 )(
     // Interface: APB
