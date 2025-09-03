@@ -19,8 +19,8 @@ package _vwlutpz2gsg_pkg;
     parameter FSM_PER_SLOT = 4;
     parameter INSTR_ADDR_WIDTH = 6;
     parameter INSTR_DATA_WIDTH = 32;
-    parameter INSTR_HOPS_WIDTH = 4;
-    parameter IO_ADDR_WIDTH = 16;
+    parameter INSTR_HOPS_WIDTH = 1;
+    parameter IO_ADDR_WIDTH = 2;
     parameter IO_DATA_WIDTH = 256;
     parameter NUM_SLOTS = 16;
     parameter RESOURCE_INSTR_WIDTH = 27;
@@ -215,7 +215,7 @@ import _vwlutpz2gsg_pkg::*;
         .clk_0(clk),
         .rst_n_0(rst_n),
         .instr_en_0(instr_valid[1]),
-        .instr_0(instr),
+        .instr_0(instr[1]),
         .activate_0(activate[1]),
         .word_data_in_0(word_data_in[1]),
         .word_data_out_0(word_data_out[1]),
@@ -223,7 +223,7 @@ import _vwlutpz2gsg_pkg::*;
         .bulk_data_out_0(bulk_data_out[1]),        .clk_1(clk),
         .rst_n_1(rst_n),
         .instr_en_1(instr_valid[2]),
-        .instr_1(instr),
+        .instr_1(instr[2]),
         .activate_1(activate[2]),
         .word_data_in_1(word_data_in[2]),
         .word_data_out_1(word_data_out[2]),
@@ -231,7 +231,7 @@ import _vwlutpz2gsg_pkg::*;
         .bulk_data_out_1(bulk_data_out[2]),        .clk_2(clk),
         .rst_n_2(rst_n),
         .instr_en_2(instr_valid[3]),
-        .instr_2(instr),
+        .instr_2(instr[3]),
         .activate_2(activate[3]),
         .word_data_in_2(word_data_in[3]),
         .word_data_out_2(word_data_out[3]),
@@ -239,7 +239,7 @@ import _vwlutpz2gsg_pkg::*;
         .bulk_data_out_2(bulk_data_out[3]),        .clk_3(clk),
         .rst_n_3(rst_n),
         .instr_en_3(instr_valid[4]),
-        .instr_3(instr),
+        .instr_3(instr[4]),
         .activate_3(activate[4]),
         .word_data_in_3(word_data_in[4]),
         .word_data_out_3(word_data_out[4]),
@@ -259,7 +259,7 @@ import _vwlutpz2gsg_pkg::*;
         .clk_0(clk),
         .rst_n_0(rst_n),
         .instr_en_0(instr_valid[5]),
-        .instr_0(instr),
+        .instr_0(instr[5]),
         .activate_0(activate[5]),
         .word_data_in_0(word_data_in[5]),
         .word_data_out_0(word_data_out[5]),
@@ -267,7 +267,7 @@ import _vwlutpz2gsg_pkg::*;
         .bulk_data_out_0(bulk_data_out[5]),        .clk_1(clk),
         .rst_n_1(rst_n),
         .instr_en_1(instr_valid[6]),
-        .instr_1(instr),
+        .instr_1(instr[6]),
         .activate_1(activate[6]),
         .word_data_in_1(word_data_in[6]),
         .word_data_out_1(word_data_out[6]),
@@ -279,7 +279,7 @@ import _vwlutpz2gsg_pkg::*;
         .clk_0(clk),
         .rst_n_0(rst_n),
         .instr_en_0(instr_valid[7]),
-        .instr_0(instr),
+        .instr_0(instr[7]),
         .activate_0(activate[7]),
         .word_data_in_0(word_data_in[7]),
         .word_data_out_0(word_data_out[7]),
@@ -287,7 +287,7 @@ import _vwlutpz2gsg_pkg::*;
         .bulk_data_out_0(bulk_data_out[7]),        .clk_1(clk),
         .rst_n_1(rst_n),
         .instr_en_1(instr_valid[8]),
-        .instr_1(instr),
+        .instr_1(instr[8]),
         .activate_1(activate[8]),
         .word_data_in_1(word_data_in[8]),
         .word_data_out_1(word_data_out[8]),

@@ -8,13 +8,15 @@ package _gcuvy23b1jt_pkg;
     parameter BULK_BITWIDTH = 256;
     parameter FSM_PER_SLOT = 4;
     parameter INSTR_OPCODE_BITWIDTH = 3;
-    parameter IO_ADDR_WIDTH = 16;
+    parameter IO_ADDR_WIDTH = 2;
     parameter IO_DATA_WIDTH = 256;
     parameter NUM_SLOTS = 16;
     parameter RESOURCE_INSTR_WIDTH = 27;
     parameter RF_DEPTH = 64;
     parameter WORD_ADDR_WIDTH = 6;
     parameter WORD_BITWIDTH = 32;
+    parameter AGU_BITWIDTH = 16;
+    parameter DELAY_WIDTH = 5;
 
     typedef struct packed {
         logic _init_addr_sd;
@@ -134,8 +136,6 @@ package _gcuvy23b1jt_pkg;
         return instr;
     endfunction
 
-    parameter AGU_BITWIDTH = 16;
-    parameter DELAY_WIDTH = 5;
 
 endpackage
 
@@ -231,16 +231,16 @@ import _gcuvy23b1jt_pkg::*;
     assign fft_3 = fft_valid_3 ? unpack_fft(payload_3) : '{default: 0};
 
     logic [IO_ADDR_WIDTH-1:0] addr_0_0, addr_0_1;
-    logic [WORD_ADDR_WIDTH-1:0] addr_0_2, addr_0_3;
+    logic [AGU_BITWIDTH-1:0] addr_0_2, addr_0_3;
     logic port_enable_0_0, port_enable_0_1, port_enable_0_2, port_enable_0_3;
 
-    logic [WORD_ADDR_WIDTH-1:0] addr_1_0, addr_1_1;
+    logic [AGU_BITWIDTH-1:0] addr_1_0, addr_1_1;
     logic port_enable_1_0, port_enable_1_1;
 
-    logic [WORD_ADDR_WIDTH-1:0] addr_2_0, addr_2_1;
+    logic [AGU_BITWIDTH-1:0] addr_2_0, addr_2_1;
     logic port_enable_2_0, port_enable_2_1;
 
-    logic [WORD_ADDR_WIDTH-1:0] addr_3_1;
+    logic [AGU_BITWIDTH-1:0] addr_3_1;
     logic port_enable_3_1;
 
     logic [IO_ADDR_WIDTH-1:0] step_0_0;

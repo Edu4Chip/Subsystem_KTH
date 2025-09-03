@@ -7,7 +7,7 @@ package _bofiw7zs7vj_pkg;
     parameter FSM_PER_SLOT = 4;
     parameter INSTR_ADDR_WIDTH = 6;
     parameter INSTR_DATA_WIDTH = 32;
-    parameter INSTR_HOPS_WIDTH = 4;
+    parameter INSTR_HOPS_WIDTH = 1;
     parameter NUM_SLOTS = 16;
     parameter RESOURCE_INSTR_WIDTH = 27;
 
