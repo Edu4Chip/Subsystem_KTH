@@ -268,7 +268,7 @@ module apb_slave_interface #(
                     ret_reg[r] <= ret[r];
                 end
                 ret_reg[APB_DW-ROWS-2: ROWS] <= {(APB_DW - ROWS){1'b0}};
-                ret_reg[APB_ DW-ROWS-1] <= 1'b1;   // MSB is used to indicate valid data
+                ret_reg[APB_DW-ROWS-1] <= 1'b1;   // MSB is used to indicate valid data
             end
             else 
                 ret_reg[APB_DW-ROWS-1] <= 1'b0;
