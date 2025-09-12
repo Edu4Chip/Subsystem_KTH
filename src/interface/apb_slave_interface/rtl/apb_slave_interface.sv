@@ -92,6 +92,8 @@ module apb_slave_interface #(
     logic                            sel_data_out_region;
     logic                            sel_ctrl_region;
     
+    logic pready_reg;
+
     assign apb_write = PSEL && PENABLE &&  PWRITE && !PSLVERR;
     assign apb_read  = PSEL && PENABLE && !PWRITE && !PSLVERR;
 
@@ -266,10 +268,24 @@ module apb_slave_interface #(
                     ret_reg[r] <= ret[r];
                 end
                 ret_reg[APB_DW-ROWS-2: ROWS] <= {(APB_DW - ROWS){1'b0}};
-                ret_reg[APB_DW-ROWS-1] <= 1'b1;   // MSB is used to indicate valid data
+                ret_reg[APB_ DW-ROWS-1] <= 1'b1;   // MSB is used to indicate valid data
             end
             else 
                 ret_reg[APB_DW-ROWS-1] <= 1'b0;
+        end
+    end
+
+    always_ff @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            pready_reg <= 1'b0;
+        end 
+        else begin
+            if((apb_read || apb_write) && !pready_reg ) begin
+                pready_reg <= 1'b1; 
+            end
+            else begin
+                pready_reg <= 1'b0;
+            end
         end
     end
 
@@ -277,7 +293,7 @@ module apb_slave_interface #(
                    (en_mmio_ob) ? disassembler_mmio_ob : {{APB_DW{1'bx}}};
 
     // Always ready for single-cycle response
-    assign PREADY = 1'b1; 
+    assign PREADY = pready_reg; 
     
     // Error Logic (address checks) 
     // assign PSLVERR = 1'b0;
