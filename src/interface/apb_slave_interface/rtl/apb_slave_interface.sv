@@ -292,7 +292,7 @@ module apb_slave_interface #(
     assign PRDATA = ret_reg[APB_DW-ROWS-1] ? {1'b0, ret_reg[APB_DW-ROWS-2:0]} :
                    (en_mmio_ob) ? disassembler_mmio_ob : {{APB_DW{1'bx}}};
 
-    // Always ready for single-cycle response
+    // Registered output to match data timing
     assign PREADY = pready_reg; 
     
     // Error Logic (address checks) 
