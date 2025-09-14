@@ -19,7 +19,7 @@ package _dixk93xtnmt_pkg;
       logic [3:0] _target;
   } swb_t;
 
-  function static swb_t unpack_swb;
+  function automatic swb_t unpack_swb;
       input logic [23:0] instr;
       swb_t _swb;
       _swb._option  = instr[23:22];
@@ -29,7 +29,7 @@ package _dixk93xtnmt_pkg;
       return _swb;
   endfunction
 
-  function static logic [23:0] pack_swb;
+  function automatic logic [23:0] pack_swb;
       input swb_t _swb;
       logic [23:0] instr;
 
@@ -46,7 +46,7 @@ package _dixk93xtnmt_pkg;
       logic [15:0] _target;
   } route_t;
 
-  function static route_t unpack_route;
+  function automatic route_t unpack_route;
       input logic [23:0] instr;
       route_t _route;
       _route._option  = instr[23:22];
@@ -56,7 +56,7 @@ package _dixk93xtnmt_pkg;
       return _route;
   endfunction
 
-  function static logic [23:0] pack_route;
+  function automatic logic [23:0] pack_route;
       input route_t _route;
       logic [23:0] instr;
 
@@ -74,7 +74,7 @@ package _dixk93xtnmt_pkg;
       logic [5:0] _delay;
   } rep_t;
 
-  function static rep_t unpack_rep;
+  function automatic rep_t unpack_rep;
       input logic [23:0] instr;
       rep_t _rep;
       _rep._port  = instr[23:22];
@@ -85,7 +85,7 @@ package _dixk93xtnmt_pkg;
       return _rep;
   endfunction
 
-  function static logic [23:0] pack_rep;
+  function automatic logic [23:0] pack_rep;
       input rep_t _rep;
       logic [23:0] instr;
 
@@ -104,7 +104,7 @@ package _dixk93xtnmt_pkg;
       logic [5:0] _delay;
   } repx_t;
 
-  function static repx_t unpack_repx;
+  function automatic repx_t unpack_repx;
       input logic [23:0] instr;
       repx_t _repx;
       _repx._port  = instr[23:22];
@@ -115,7 +115,7 @@ package _dixk93xtnmt_pkg;
       return _repx;
   endfunction
 
-  function static logic [23:0] pack_repx;
+  function automatic logic [23:0] pack_repx;
       input repx_t _repx;
       logic [23:0] instr;
 
@@ -133,7 +133,7 @@ package _dixk93xtnmt_pkg;
       logic [6:0] _delay_2;
   } fsm_t;
 
-  function static fsm_t unpack_fsm;
+  function automatic fsm_t unpack_fsm;
       input logic [23:0] instr;
       fsm_t _fsm;
       _fsm._port  = instr[23:22];
@@ -143,7 +143,7 @@ package _dixk93xtnmt_pkg;
       return _fsm;
   endfunction
 
-  function static logic [23:0] pack_fsm;
+  function automatic logic [23:0] pack_fsm;
       input fsm_t _fsm;
       logic [23:0] instr;
 

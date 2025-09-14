@@ -149,7 +149,7 @@ module apb_slave_interface #(
     always_ff @(posedge clk, negedge rst_n) begin : CHUNK_COUNTER_IB
         if (!rst_n) begin
             chunck_counter_ib <= 0;
-        end else if (apb_write && sel_data_in_region) begin
+        end else if (apb_write && sel_data_in_region && PREADY) begin
             if (chunck_counter_ib < NUM_CHUNKS - 1) begin
                 chunck_counter_ib <= chunck_counter_ib + 1'b1;
             end
@@ -199,7 +199,7 @@ module apb_slave_interface #(
     always_ff @(posedge clk, negedge rst_n) begin : CHUNK_COUNTER_OB
         if (!rst_n) begin
             chunck_counter_ob <= 0;
-        end else if (en_mmio_ob) begin
+        end else if (en_mmio_ob &&  PREADY) begin
             if (chunck_counter_ob < NUM_CHUNKS - 1) begin
                 chunck_counter_ob <= chunck_counter_ob + 1'b1;
             end else begin
@@ -290,7 +290,7 @@ module apb_slave_interface #(
     end
 
     assign PRDATA = ret_reg[APB_DW-ROWS-1] ? {1'b0, ret_reg[APB_DW-ROWS-2:0]} :
-                   (en_mmio_ob) ? disassembler_mmio_ob : {{APB_DW{1'bx}}};
+                   (en_mmio_ob) ? disassembler_mmio_ob : {{APB_DW{1'b0}}};
 
     // Registered output to match data timing
     assign PREADY = pready_reg; 
