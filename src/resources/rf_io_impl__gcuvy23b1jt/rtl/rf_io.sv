@@ -24,7 +24,7 @@ package _gcuvy23b1jt_pkg;
         logic [1:0] _port;
     } dsu_t;
 
-    function static dsu_t unpack_dsu;
+    function automatic dsu_t unpack_dsu;
         input logic [23:0] instr;
         dsu_t _dsu;
         _dsu._init_addr_sd = instr[23];
@@ -33,7 +33,7 @@ package _gcuvy23b1jt_pkg;
         return _dsu;
     endfunction
 
-    function static logic [23:0] pack_dsu;
+    function automatic logic [23:0] pack_dsu;
         input dsu_t _dsu;
         logic [23:0] instr;
 
@@ -50,7 +50,7 @@ package _gcuvy23b1jt_pkg;
         logic [5:0] _delay;
     } rep_t;
 
-    function static rep_t unpack_rep;
+    function automatic rep_t unpack_rep;
         input logic [23:0] instr;
         rep_t _rep;
         _rep._port  = instr[23:22];
@@ -61,7 +61,7 @@ package _gcuvy23b1jt_pkg;
         return _rep;
     endfunction
 
-    function static logic [23:0] pack_rep;
+    function automatic logic [23:0] pack_rep;
         input rep_t _rep;
         logic [23:0] instr;
 
@@ -80,7 +80,7 @@ package _gcuvy23b1jt_pkg;
         logic [5:0] _delay;
     } repx_t;
 
-    function static repx_t unpack_repx;
+    function automatic repx_t unpack_repx;
         input logic [23:0] instr;
         repx_t _repx;
         _repx._port  = instr[23:22];
@@ -91,7 +91,7 @@ package _gcuvy23b1jt_pkg;
         return _repx;
     endfunction
 
-    function static logic [23:0] pack_repx;
+    function automatic logic [23:0] pack_repx;
         input repx_t _repx;
         logic [23:0] instr;
 
@@ -111,7 +111,7 @@ package _gcuvy23b1jt_pkg;
         logic [5:0] _delay;
     } fft_t;
 
-    function static fft_t unpack_fft;
+    function automatic fft_t unpack_fft;
         input logic [23:0] instr;
         fft_t _fft;
         _fft._port  = instr[23:22];
@@ -123,7 +123,7 @@ package _gcuvy23b1jt_pkg;
         return _fft;
     endfunction
 
-    function static logic [23:0] pack_fft;
+    function automatic logic [23:0] pack_fft;
         input fft_t _fft;
         logic [23:0] instr;
 

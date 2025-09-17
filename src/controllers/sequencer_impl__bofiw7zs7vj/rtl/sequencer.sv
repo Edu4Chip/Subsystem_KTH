@@ -17,7 +17,7 @@ package _bofiw7zs7vj_pkg;
         logic [26:0] _cycle;
     } wait_t;
 
-    function static wait_t unpack_wait;
+    function automatic wait_t unpack_wait;
         input logic [27:0] instr;
         wait_t _wait;
         _wait._mode = instr[27];
@@ -25,7 +25,7 @@ package _bofiw7zs7vj_pkg;
         return _wait;
     endfunction
 
-    function static logic [27:0] pack_wait;
+    function automatic logic [27:0] pack_wait;
         input wait_t _wait;
         logic [27:0] instr;
 
@@ -39,7 +39,7 @@ package _bofiw7zs7vj_pkg;
         logic [7:0] _param;
     } act_t;
 
-    function static act_t unpack_act;
+    function automatic act_t unpack_act;
         input logic [27:0] instr;
         act_t _act;
         _act._ports  = instr[27:12];
@@ -48,7 +48,7 @@ package _bofiw7zs7vj_pkg;
         return _act;
     endfunction
 
-    function static logic [27:0] pack_act;
+    function automatic logic [27:0] pack_act;
         input act_t _act;
         logic [27:0] instr;
 
@@ -65,7 +65,7 @@ package _bofiw7zs7vj_pkg;
         logic [3:0] _result;
     } calc_t;
 
-    function static calc_t unpack_calc;
+    function automatic calc_t unpack_calc;
         input logic [27:0] instr;
         calc_t _calc;
         _calc._mode  = instr[27:22];
@@ -76,7 +76,7 @@ package _bofiw7zs7vj_pkg;
         return _calc;
     endfunction
 
-    function static logic [27:0] pack_calc;
+    function automatic logic [27:0] pack_calc;
         input calc_t _calc;
         logic [27:0] instr;
 
@@ -93,7 +93,7 @@ package _bofiw7zs7vj_pkg;
         logic [8:0] _target_false;
     } brn_t;
 
-    function static brn_t unpack_brn;
+    function automatic brn_t unpack_brn;
         input logic [27:0] instr;
         brn_t _brn;
         _brn._reg  = instr[27:24];
@@ -102,7 +102,7 @@ package _bofiw7zs7vj_pkg;
         return _brn;
     endfunction
 
-    function static logic [27:0] pack_brn;
+    function automatic logic [27:0] pack_brn;
         input brn_t _brn;
         logic [27:0] instr;
 
