@@ -24,5 +24,5 @@ module io_buffer #(
         end 
     end
 
-    assign data_out = (read_enable) ? buffer[addr] : {DATA_WIDTH{1'bz}};
+    assign data_out = (read_enable) ? buffer[addr] : {DATA_WIDTH{1'b0}};
 endmodule
