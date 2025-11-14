@@ -18,7 +18,9 @@ module fsm #(
 
   always_ff @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin
-      delay_counter <= fsm_delays[0];
+      delay_counter <= 0;
+    end else if (activate) begin
+        delay_counter <= fsm_delays[0];
     end else begin
       delay_counter <= delay_counter_next;
     end
